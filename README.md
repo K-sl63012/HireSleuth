@@ -2,211 +2,161 @@
 
 ### AI Agent for Investigating Job & Internship Offers
 
-> **Don't just trust the offer. Investigate it.**
+> **“Don’t just trust the offer. Investigate it.”**
 
-HireSleuth is an AI-powered investigation assistant that helps students evaluate job and internship offers before they proceed.
+HireSleuth is an AI-powered investigation agent that helps students evaluate job and internship offers before accepting them.
 
-Students often receive opportunities through emails, messages, PDFs, and online platforms. Some offers may contain warning signs such as unexpected payment requests, urgency, missing information, or suspicious recruitment practices.
+It analyzes an offer for potential risk signals such as upfront payment requests, artificial urgency, limited-seat pressure, suspicious requests, missing information, and other unusual recruitment patterns.
 
-HireSleuth analyzes the provided offer and produces a structured risk assessment, verification checklist, and recommended next action.
+Instead of simply saying **“scam”**, HireSleuth provides a structured investigation with a **risk level, risk score, red flags, verification checklist, and recommended action**.
 
 ---
 
 ## 🎯 Problem
 
-Students and fresh graduates frequently receive job and internship offers through different channels.
+Students regularly receive job and internship offers through:
 
-It can be difficult to quickly identify:
+* Email
+* WhatsApp
+* LinkedIn
+* College groups
+* Internship platforms
+* Social media
 
-* Unexpected registration or internship fees
-* Urgency and pressure tactics
-* Suspicious recruitment behavior
+Some offers may contain warning signs such as:
+
+* Registration or training fees
+* Requests for money to confirm a position
+* Urgent payment deadlines
+* Unrealistic promises
 * Missing company information
-* Unclear job or internship details
+* Suspicious links
 * Requests for sensitive information
-* Suspicious links or communication channels
 
-A student may accept an opportunity without carefully investigating these signals.
+Students may find it difficult to determine what should be trusted and what should be independently verified.
 
 ---
 
 ## 💡 Solution
 
-HireSleuth acts as an AI investigation agent.
+HireSleuth acts as an **AI investigation agent** between the student and the offer.
 
-The user can:
-
-1. Paste an offer message or email
-2. Upload an offer PDF
-3. Load a sample offer for demonstration
-4. Start an AI investigation
-5. Review the detected risk signals
-6. Check the risk score and risk level
-7. Review what should be independently verified
-8. Follow the recommended next action
-
-### Core Flow
+### Investigation Flow
 
 **Offer → Investigation → Risk Assessment → Verification → Recommendation**
+
+The agent:
+
+1. Receives the job or internship offer.
+2. Extracts important information.
+3. Detects potential risk signals.
+4. Assigns a risk level and score.
+5. Identifies positive signals.
+6. Creates a verification checklist.
+7. Recommends the safest next action.
 
 ---
 
 ## 🤖 Agent Investigation Trail
 
-HireSleuth presents the investigation as a sequence of steps:
-
-**📩 Offer**
-Receive the offer
-
-↓
-
-**📝 Extract**
-Extract important details
-
-↓
-
-**🚩 Detect**
-Identify potential risk signals
-
-↓
-
-**📊 Assess**
-Evaluate the overall risk
-
-↓
-
-**🛡️ Recommend**
-Suggest the safest next action
+```text
+📩 Offer
+   ↓
+📝 Extract Details
+   ↓
+🚩 Detect Risk Signals
+   ↓
+📊 Assess Risk
+   ↓
+🔍 Create Verification Checklist
+   ↓
+🛡️ Recommend Action
+```
 
 ---
 
 ## ✨ Features
 
-### 📋 Offer Text Analysis
+### 📋 Offer Analysis
 
-Users can paste:
+Paste a complete job or internship offer into HireSleuth for analysis.
 
-* Job offers
-* Internship offers
-* Recruitment emails
-* Messages
-* Selection notifications
+### 📄 PDF Support
 
-HireSleuth analyzes the provided content using AI.
-
-### 📎 PDF Investigation
-
-Users can upload a text-based PDF offer.
-
-HireSleuth extracts the PDF content and sends it for investigation.
+Upload a text-based PDF containing an offer and HireSleuth extracts the text automatically.
 
 ### 🚩 Red Flag Detection
 
-The AI looks for signals such as:
+Identifies warning signals including:
 
 * Upfront payment requests
 * Registration fees
 * Seat-confirmation fees
-* Urgency
+* Artificial urgency
 * Limited-seat pressure
-* Suspicious communication
+* Suspicious links
+* Unofficial email domains
+* Unrealistic promises
 * Missing company information
-* Unclear responsibilities
 * Requests for sensitive information
-* Suspicious links or domains
 
-### 📊 Risk Assessment
+### 📊 Risk Dashboard
 
-The investigation produces:
+Provides:
 
-* Risk Level
-* Risk Score from 0–100
-* Red Flags
-* Positive Signals
-* Investigation Reasoning
+* Risk Level — LOW / MEDIUM / HIGH
+* Risk Score — 0 to 100
+* Recommended Action
 
 ### 🔍 Verification Checklist
 
-Instead of immediately labeling an offer as fraudulent, HireSleuth identifies information that should be independently verified.
+Shows what the student should independently verify, including:
 
-### 🛡️ Recommended Action
+* Company identity
+* Recruiter identity
+* Official website
+* Recruiter email/domain
+* Job or internship details
+* Payment requirements
+* Links and domains
+* Contact information
+* Claims made in the offer
 
-The system provides one of three actions:
+### 🧠 Investigation Reasoning
+
+Provides concise, decision-relevant reasoning explaining the main factors behind the assessment.
+
+### 🛡️ Safety-Focused Recommendation
+
+The agent recommends one of:
 
 * **PROCEED**
 * **VERIFY BEFORE PROCEEDING**
 * **DO NOT PROCEED**
 
-### 🎯 Demo Mode
-
-A built-in sample offer allows judges to test the system quickly without entering their own data.
+HireSleuth does not automatically label every suspicious offer as fraudulent. It distinguishes between suspicious behavior, information requiring verification, and confirmed evidence.
 
 ---
 
-## 🛠️ Technology Stack
+## 📸 Screenshots
 
-* **Python**
-* **Streamlit**
-* **Google Gemini API**
-* **PyPDF**
-* **python-dotenv**
+### 🏠 HireSleuth Interface
 
----
+![HireSleuth Home](screenshots/screenshot-home.png)
 
-## 🏗️ Project Structure
+### 🚨 Risk Dashboard
 
-```text
-HireSleuth/
-│
-├── app.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── .env
-```
+![Risk Dashboard](screenshots/screenshot-risk-dashboard.png)
 
-`.env` is used locally for the Gemini API key and is excluded from GitHub.
+### 🔎 Investigation Report
 
----
-
-## 🚀 How to Run Locally
-
-### 1. Clone the repository
-
-```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd HireSleuth
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Create `.env`
-
-Create a file named `.env` in the project folder:
-
-```text
-GEMINI_API_KEY=your_api_key_here
-```
-
-Do not publish your API key.
-
-### 4. Run the application
-
-```bash
-streamlit run app.py
-```
-
-The application will open in your browser.
+![Investigation Report](screenshots/screenshot-investigation-report.png)
 
 ---
 
 ## 🧪 Example Investigation
 
-### Example Input
+### Example Offer
 
 ```text
 Congratulations!
@@ -216,92 +166,205 @@ You have been selected for our AI Internship Program.
 To confirm your internship seat, you must pay a registration
 fee of ₹2,999 within 24 hours.
 
+After payment, you will receive training access and an
+internship certificate.
+
 Limited seats are available.
 
 Pay immediately to secure your position.
+
+Regards,
+AI Internship Team
 ```
 
-### Expected Investigation
+### HireSleuth Assessment
 
-HireSleuth should identify signals such as:
+The agent can identify signals such as:
 
-* Upfront payment request
-* Urgency
+* Upfront registration fee
+* 24-hour payment deadline
 * Limited-seat pressure
-* Lack of detailed organization information
+* Lack of clear organization details
 
-The system can then assign a high risk score and recommend:
+The result may therefore indicate:
 
-**🛑 DO NOT PROCEED**
+```text
+Risk Level: HIGH
+
+Risk Score: High
+
+Recommended Action:
+DO NOT PROCEED
+```
+
+The exact risk score may vary because the AI assessment is generated dynamically.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology       | Purpose                         |
+| ---------------- | ------------------------------- |
+| Python           | Application logic               |
+| Streamlit        | Web application interface       |
+| Google Gemini    | AI investigation                |
+| Google GenAI SDK | Gemini API integration          |
+| PyPDF            | PDF text extraction             |
+| python-dotenv    | Environment variable management |
+| Git & GitHub     | Version control                 |
+
+---
+
+## 📁 Project Structure
+
+```text
+HireSleuth/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+└── screenshots/
+    ├── screenshot-home.png
+    ├── screenshot-risk-dashboard.png
+    └── screenshot-investigation-report.png
+```
+
+---
+
+## 🚀 Run Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/K-sl63012/HireSleuth.git
+```
+
+### 2. Open the project
+
+```bash
+cd HireSleuth
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the virtual environment
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+### 5. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Configure the Gemini API key
+
+Create a `.env` file:
+
+```text
+GEMINI_API_KEY=your_api_key_here
+```
+
+**Never upload `.env` or your API key to GitHub.**
+
+### 7. Run HireSleuth
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser.
+
+---
+
+## 🎯 Quick Demo
+
+HireSleuth includes a built-in demo offer.
+
+1. Open HireSleuth.
+2. Click **🎯 Load Demo Offer**.
+3. Click **🔎 Investigate Offer**.
+4. Watch the investigation trail.
+5. Review the Risk Dashboard.
+6. Examine the Red Flags.
+7. Follow the Verification Checklist.
+8. Review the Recommended Action.
+
+This allows the project to be demonstrated quickly during a hackathon presentation.
+
+---
+
+## 👥 Target Users
+
+HireSleuth is designed primarily for:
+
+* College students
+* Fresh graduates
+* Internship seekers
+* Job seekers
+* Early-career professionals
 
 ---
 
 ## 🔐 Safety Approach
 
-HireSleuth is designed as an AI-assisted investigation tool.
+HireSleuth is designed as an **AI-assisted decision-support tool**, not as a definitive fraud-detection system.
 
-It does **not automatically declare every suspicious offer to be a scam**.
+The application avoids automatically declaring an offer fraudulent without sufficient evidence.
 
-The system distinguishes between:
+Users should independently verify important employment opportunities through official channels.
 
-* Suspicious behavior
-* Information requiring verification
-* Evidence that may indicate significant risk
-
-Users should independently verify important claims through official company channels.
+### Important Safety Rules
 
 Never share:
 
 * Passwords
 * OTPs
 * Banking credentials
+* Card PINs
 * Sensitive personal information
 
-Never send money solely because an offer creates urgency or pressure.
+Never send money simply because an offer creates urgency.
 
----
-
-## 🎯 Target Users
-
-HireSleuth is especially useful for:
-
-* College students
-* Fresh graduates
-* Internship seekers
-* Job seekers
-* First-time applicants
+Always verify important claims through official company channels.
 
 ---
 
 ## 🔮 Future Improvements
 
-Potential future improvements include:
+Possible future versions of HireSleuth could include:
 
-* Live company and domain verification
-* URL reputation analysis
-* Email-domain verification
-* Official company website comparison
-* Recruiter identity verification
-* Historical offer pattern analysis
-* Browser-based investigation tools
-* Multi-agent investigation architecture
-* Downloadable investigation reports
-
----
-
-## ⚠️ Disclaimer
-
-HireSleuth provides an AI-assisted assessment and should not be treated as definitive proof that an opportunity is legitimate or fraudulent.
-
-Important employment and internship decisions should always be independently verified through official sources.
+* 🌐 Automated web-based company verification
+* 🔗 Suspicious URL and domain analysis
+* 📧 Email header analysis
+* 🏢 Official company website comparison
+* 🔍 Recruiter identity verification
+* 📰 Public scam-report and reputation checks
+* 📑 Offer authenticity comparison
+* 📊 Investigation history and reports
+* 📥 Downloadable investigation reports
+* 🤖 Multi-agent investigation workflow
 
 ---
 
-## 🏆 Hackathon
+## 🏆 Hackathon Concept
+
+**Track:** Agentic AI
 
 **Project:** HireSleuth
-**Track:** Agentic AI
 
 **Tagline:**
 
-> Don't just trust the offer. Investigate it.
+> **Don’t just trust the offer. Investigate it.**
+
+HireSleuth demonstrates how an AI agent can transform an unstructured job or internship offer into a structured investigation and actionable safet
